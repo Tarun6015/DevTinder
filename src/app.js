@@ -4,6 +4,7 @@ const app = express();
 
 const { adminAuth, userAuth } = require("./Middleware/auth");
 app.use("/admin", adminAuth);
+app.use("/user", userAuth);
 
 app.get("/admin/userdata", (req, res, next) => {
   res.send("All user data");
@@ -13,7 +14,7 @@ app.get("/admin/deleteuserdata", (req, res, next) => {
   res.send("All data Deleted");
 });
 
-app.get("/user", userAuth, (req, res, next) => {
+app.get("/user/login", (req, res, next) => {
   res.send("this is a user");
 });
 
